@@ -1,0 +1,63 @@
+/*	-WHAT IS THIS?-
+	This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+	Import this file using the "Add Extra Materials" bookmark.
+
+	-KEEP IN MIND-
+	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
+*/
+
+/*	-INFORMATION-
+	Subject:	Race
+	Effect:		This script adds a player race, called "Half-Medusa"
+	Code by:	Nick
+	Date:		2019-02-06 (sheet v13.0.0beta6)
+*/
+
+var iFileName = "Half-Medusa.js";
+RequiredSheetVersion(12.999);
+
+SourceList["DnDB:HM"] = {
+	name : "Half-Medusa",
+  abbreviation : "DnDB:HM",
+	url : "https://www.dndbeyond.com/characters/races/4658-half-medusa",
+	date : "2016/01/30"
+};
+
+RaceList["half-medusa"] = {
+	regExpSearch : /half-medusa/i,
+	name : "Half-Medusa",
+	source : ["DnDB", 0],
+	plural : "Ha;f-Medusa",
+	size : 3,
+	speed : {  walk : { spd : 30, enc : 20 }, climb : { spd : "fixed 30", enc : "fixed 20" }, swim : { spd : "fixed 30", enc : "fixed 20" }  },
+	languageProfs : ["Common", 1],
+	vision : [["Darkvision", 60]],
+  weapons : ["Snake Hair"],
+	age : " mature at the rate of humans, but live longer than 200 years",
+	improvements : "Half-Medusa: +2 Constitution, +1 Dexterity or Wisdom;",
+	scores : [0, 0, 2, 0, 0, 0],
+  	features : {
+		"Gaze of the Gorgon" : {
+			name : "Gaze of the Gorgon",
+			minlevel : 1,
+			usages : 3,
+			recovery : "long rest",
+			tooltip : "",
+      action : ["action", ""], }
+    },
+  trait : "Half-Medusa (+2 Constitution and +1 to Dexterity or Wisdom)\nGaze of the Gorgon: I can force an enemy to make a save against my Con DC, or be incap'd until the end of my next turn.\nSnake Hair: My hair can be used as natural unarmed weapons, dealing 1d4 Piercing damage on a hit."
+	};
+abilitySave : 3,
+   
+
+
+WeaponsList["snake hair"] = {
+	regExpSearch : /^(?=.*snake)(?=.*hair).*$/i,
+	name : "Snake Hair",
+	source : ["DnDB", 0],
+	ability : 1,
+	type : "Natural",
+	damage : [1, 4, "Piercing"],
+	range : "Melee",
+	description : "They're snakes, man.",
+	abilitytodamage : true  };
