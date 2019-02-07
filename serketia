@@ -1,0 +1,72 @@
+/*	-WHAT IS THIS?-
+	This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+	Import this file using the "Add Extra Materials" bookmark.
+
+	-KEEP IN MIND-
+	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
+*/
+
+/*	-INFORMATION-
+	Subject:	Serketia
+	Effect:		This script adds a player race, called "Serketia"
+				This is taken from DnD Beyond (https://www.dndbeyond.com/characters/races/94913-serketia)
+				This race is made by schnivel
+	Sheet:		v13.00.00 (2018-??-??)
+*/
+
+var iFileName = "Serketia [Schnivel's work].js"; 
+RequiredSheetVersion(12.999);  
+
+SourceList["DnD-B:S"] = {
+	name : "D&D Beyond: Serketia",
+	abbreviation : "DnD-B:D",
+	group : "D&D Beyond",
+	url : "https://www.dndbeyond.com/characters/races/94913-serketia",
+	date : "2019/01/07"
+};
+RaceList["serketia"] = { 
+	regExpSearch : /serketia/i, 	
+	name : "Serketia", 
+	sortname : "Serketia", 
+	source : ["DnD-B:S", 0],
+	plural : "Serketia", 	
+	size : 3, 
+	speed : { 		
+		walk : { spd : 30, enc : 20 }, 
+	},
+	languageProfs : [1, "Common"], 
+	vision : [["Darkvision", 60]], 
+	weapons : ["Venomous Stinger"], 
+	skills : ["Survival"],
+	addarmor : "Natural Armor", 
+	savetxt : {
+		immune : ["poison"], 
+	},
+	age : " reach adulthood in their twenties and live at least 300 years", 	
+	height : " range from 5 to over 7 feet tall (5'4\" + 2d12\")", 
+	weight : " weigh around 175 lb (120 + 2d12 \xD7 2d4 lb)", 
+	improvements : "Serketia: +1 Dexterity, +2 Constitution;", 
+	scores : [0, 1, 2, 0, 0, 0], 
+	  	trait : "Serketia (+1 Dexterity, +2 Constitution), Natural Armor\nVenomous Stinger: My stinger is a natural finesse weapon that deals 1d4 piercing dmg + 1d8 poison dmg on a failed Con save vs my Con Ability Save DC. The Poison damage scales at levels 5, 11, and 17.\nMolting: When reduced to 0 hit points, my next long rest is spent molting. I am vuln. to Bludgeoning, Piercing, and Slashing damage until my next long rest. Any lost limbs or appendages are grown back.",
+	abilitySave : 3,
+  	features : {
+		"venomous stinger" : {
+			name : "Venomous Stinger",
+			minlevel : 1,
+			action : ["action", ""]
+			},
+    }
+};
+// Serketia natural weapons
+WeaponsList["venomous stinger"] = {
+	regExpSearch : /^(?=.*venomous)(?=.*\bstinger?\b).*$/i,
+	name : "Venomous Stinger",
+	source : ["serketia", 0],
+	ability : 2,
+	type : "Natural",
+	damage : [1, 4, "piercing"],
+	range : "Melee",
+	description : "Target takes extra 1d8/2d8/3d8/4d8 poison damage on a failed Con save",
+	abilitytodamage : true,
+	monkweapon : true
+};
