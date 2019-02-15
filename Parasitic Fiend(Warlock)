@@ -1,0 +1,96 @@
+/*	-WHAT IS THIS?-
+	This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+	Import this file using the "Add Extra Materials" bookmark.
+
+	-KEEP IN MIND-
+	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
+*/
+
+/*  -INFORMATION-
+	Subject:	Subclass
+	Effect:		This script adds a subclass for the Warlock, called "Parasitic Fiend"
+				This subclass is made by me!
+	Code by:	me!
+	Date:		2017-11-29 (sheet v12.999)
+*/
+
+var iFileName = "Warlock - Parasitic Fiend.js";
+RequiredSheetVersion(12.999);
+
+AddSubClass("warlock", "parasitic fiend", {
+	regExpSearch : /^(?=.*parasitic)(?=.*fiend).*$/i,
+	subname : "Parasitic Fiend",
+	source : ["HB", 0],
+	spellcastingExtra : ["absorb elements", "cause fear", "crown of madness", "aganazzar's scorcher", "fireball", "vampiric touch", "blight", "wall of fire", "hold monster", "immolation"],
+	features : {
+		"subclassfeature1" : {
+			name : "The Devil Looks After His Own",
+      source : ["TH:NC"],
+			minlevel : 1,
+			description : "\n   " + "As a reaction, I can cause a Fiend attacking me with an attack or harmful spell that is not AOE to make a Wisdom save. On a failed save, they must target a different creature with the attack or forfeit the action." + "\n   " + "On a successful save, a Fiend by this ability is immune to it for 24 hours. They are also immune for 24 hours if you target them with an attack or harmful spell." + "\n   " + "I can do this a number of times equal to my Charisma modifier (min 1) per long rest",
+			usages : "Cha mod per ",
+			usagescalc : "event.value = Math.max(1, this.getField(\"Cha Mod\").value);",
+			recovery : "short rest",
+			action : ["reaction", ""],
+
+		},
+		"subclassfeature1.1" : {
+			name : "Devil's Tongue",
+      source : ["TH:NC"],
+			minlevel : 1,
+			description : "\n   " + "I gain the Vicious Mockery cantrip as a Warlock spell.",
+      action : ["action", ""],
+			spellcastingBonus : {
+				name : "Vicious Mockery",
+				spells : ["vicious mockery"],
+				selection : ["vicious mockery"],
+		},
+    	"pact boon" : function () {
+			var pactBoon = newObj(ClassList.warlock.features["pact boon"]);
+			pactBoon.choices.push("Pact of the Idle Hand");
+			pactBoon["pact of the idle hand"] = {
+				name : "Pact of the Idle Hand",
+        source : ["TH:NC"],
+				description : "\n   " + "My patron grants me a natural weapon in the form of a claw, that I can summon at will and can not be disarmed of. It is a natural strength weapon. It is considered magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.",
+        weapons: ["idle hand"],
+			};
+			return pactBoon;
+		}(),
+	
+		"subclassfeature6" : {
+			name : "Eternal Vessel",
+			source : ["TH:NC"],
+			minlevel : 6,
+			description : "\n   " + "I no longer age, and gain resistance to fire damage. I am immune to disease and the poisoned condition. This does not protect me from poison damage.",
+			dmgres : [["Fire",]],
+      immune : ["the poisoned condition", "disease"],
+		},
+		"subclassfeature10" : {
+			name : "We Are Not Done Yet",
+			source : ["TH:NC"],
+			minlevel : 10,
+			description : "\n   " + "I gain advantage on death saving throws." + "\n   " + "I can also spring to my feet with 1 HP and one action on a successful death saving throw, and the action must be spent trying to attack the enemy that brought me to 0 HP. I may do this once per long rest.",
+
+		},
+		"subclassfeature14" : {
+			name : "Hell's In My Handbasket",
+			source : ["TH:NC"],
+			minlevel : 14,
+			description : "\n   " + "When I cast a spell or make a melee attack, I can add my Charisma modifier to one Fire damage roll against one of the targets." + "\n   " + "I can reattach severed limbs by holding the appendage to the stump using one action." + "\n   " + "I also learn Abyssal.",
+			action : ["action", ""]
+		}
+	}
+  
+}
+            });
+            WeaponsList["Idle Hand"] = {
+	regExpSearch : /^(?=.*idle)(?=.*hand).*$/i,
+	name : "Idle Hand",
+              source : ["TH:NC"],
+	ability : 1,
+	type : "Natural",
+	damage : [1, 4, "Slashing"],
+  damage: [1, 6, "Fire"],
+	range : "Melee",
+	description : "Deals 1d4 Slashing+1d6 Fire damage.",
+	abilitytodamage : true  };
