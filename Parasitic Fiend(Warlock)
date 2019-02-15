@@ -21,7 +21,7 @@ AddSubClass("warlock", "parasitic fiend", {
 	regExpSearch : /^(?=.*parasitic)(?=.*fiend).*$/i,
 	subname : "Parasitic Fiend",
 	source : ["HB", 0],
-	spellcastingExtra : ["absorb elements", "cause fear", "crown of madness", "aganazzar's scorcher", "fireball", "vampiric touch", "blight", "wall of fire", "hold monster", "immolation"],
+	spellcastingExtra : ["absorb elements", "false life", "crown of madness", "aganazzar's scorcher", "fireball", "vampiric touch", "blight", "wall of fire", "hold monster", "immolation"],
 	features : {
 		"subclassfeature1" : {
 			name : "The Devil Looks After His Own",
