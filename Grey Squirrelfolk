@@ -38,3 +38,4 @@ RaceList["Grey squirrelfolk"] = {
 	improvements : "Grey Squirrelfolk: +2 Dexterity, +1 Wisdom;", 
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Grey Squirrelfolk (+2 Dexterity, +1 Charisma)\nRodent Bite: I can make an unarmed strike without the use of my hands.\n   Vigilant Vegetarian: Eating meat forces me to make a DC15 Con save or be poisoned until my next long rest.\n If both my hands are free, I can drop to all fours and run at a speed of 35 feet.", 
+};
