@@ -112,7 +112,7 @@ WeaponsList["unicorn horn"] = {
 	source : ["DnDB", 0],
 	ability : 1,
 	type : "Natural",
-	damage : [1, 10, "Piercing", "Magical"],
+	damage : [1, 6, "Piercing", "Magical"],
 	range : "Melee",
-	description : "Magical natural weapon. Can not be disarmed.",
+	description : "Magical. Can not be disarmed. Gives adv on shoving.",
 	abilitytodamage : true  };
