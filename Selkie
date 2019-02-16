@@ -34,7 +34,7 @@ RaceList["Selkie"] = {
 	height : " range from just over or under 1 and a half feet tall", 
 	improvements : "Selkie: +2 Dexterity, +1 Wisdom;", 
 	scores : [0, 0, 0, 0, 1, 2],
-  trait : "Selkie (+1 Wisdom, +2 Charisma)\nAquatic Species: I have advantage on Athletics and ACrobatics when in water.\n   Sealskin: Once per long rest, I can shift into my seal form.\n   Seal Anatomy: I am vuln. to hot climates, become thirsty 2x faster, disadv on Con saves in hot climates. I gain adv on Con saves to resist cold environments.\n   Seal lungs: I can hold my breath for (Con Mod x 4) minutes.\n   Selkie Druid: Selkie druids gain an extra wild shape per day.", 
+  trait : "Selkie (+1 Wisdom, +2 Charisma)\n Aquatic Species: I have adv on Athletics, Acrobatics and can dash as a bonus action in water. I can hold my breath for (Con Mod x 4) minutes.\n Sealskin: Once per long rest, I can shift into my seal form.\n Seal Anatomy: Vuln. to hot climates, thirsty 2x faster, disadv Con saves in hot climates, adv Con saves to res cold environments.\n Selkie Druid: Selkie druids gain an extra wild shape per day.", 
 features : { //I can not get this feature to apply. It's within the traits.
 		"sealskin" : {
 			name : "Sealskin",
