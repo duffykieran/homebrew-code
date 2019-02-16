@@ -1,0 +1,119 @@
+/*	-WHAT IS THIS?-
+	This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+	Import this file using the "Add Extra Materials" bookmark.
+
+	-KEEP IN MIND-
+	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
+*/
+
+/*	-INFORMATION-
+	Subject:	Race
+	Effect:		This script adds a player race, called "Kitsune"
+				This is taken from the DMs Guild website (https://www.dmsguild.com/product/171361/)
+				This subclass is made by Marshall Miller
+	Code by:	Murray (with amendments by MorePurpleMoreBetter)
+	Date:		2017-09-22 (sheet v12.998)
+	
+	Please support the creator of this content (Marshall Miller) and download his material from the DMs Guild website: https://www.dmsguild.com/browse.php?author=Marshall%20Miller
+*/
+
+var iFileName = "Half-Unicorn.js";
+RequiredSheetVersion(12.999);
+
+SourceList["DnD:B"] = {
+	name : "Half-Unicorn race",
+	abbreviation : "DnDB",
+	group : "DnDB",
+	url : "https://www.dndbeyond.com/characters/races/1672-half-unicorn",
+	date : "2018/09/17"
+};
+
+RaceList["half-unicorn"] = {
+	regExpSearch : /half-unicorn/i,
+	name : "Half-Unicorn",
+	source : ["DnDB", 0],
+	plural : "Half-Unicorns",
+	size : 3,
+	speed : {
+		walk : { spd : 35, enc : 25 }
+	},
+	languageProfs : ["Common", "Celestial", 1],
+	savetxt : { adv_vs : ["charm", "paralyze", "poisoned"] },
+  weapons: ["unicorn horn"],
+	skills : ["animal handling"],
+	age : " reach adulthood in their late teens and live around 100 years",
+	height : " range from 5 to over 6 feet tall (4'9\" + 2d10\")",
+	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	improvements : "Half-Unicorn: +1 Wisdom, +1 Charisma, +1 ability score of your choice;",
+	scores : [0, 0, 0, 0, 1, 1],
+	trait : "Half-Unicorn(+1 Wisdom, +1 Charisma, +1 ability score of your choice)\nCelestial Ancestry: I have advantage on saving throws to prevent being Charmed, Paralyzed, Poisoned.\nCelestial Blood: I know the Druidcraft cantrip and can also cast the Detect Evil and Good spell(1st level), Calm Emotions(3rd level), and Dispel Evil and Good (10th level) and regain the abilities to do them after a long rest. Charisma is my spellcasting ability for these\nUnicorn Horn: My horn deals 1d10 magical piercing damage.\nHybrid Nature: I have two creature types: humanoid and celestial. I  can be affected by a game effect if it works on either of my  creature types.",
+	abilitySave : 6,
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Druidcraft (level 1)",
+		spells : ["druidcraft"],
+		selection : ["druidcraft"],
+		atwill : true,
+	},
+	features : {
+		"detect evil and good" : {
+			name : "Detect Evil and Good",
+			minlevel : 1,
+      description : "\n   " + "I can cast Detect Evil and Good as a 1st level spell without consuming a spell slot once per day. Charisma is my spellcasting modifier for these.",
+			additional : ["as 1st-level spell",],
+			tooltip : "(Celestial Blood)",
+			action : ["bonus action", ""],
+			usages : 1,
+			recovery : "1 hour",
+			spellcastingBonus : {
+				name : "Celestial Blood 1",
+				spells : ["detect evil and good"],
+				selection : ["detect evil and good"],
+				oncelr : false,
+			}
+		},
+	"calm emotions" : {
+			name : "Calm Emotions",
+			minlevel : 3,
+          description : "\n   " + "I can cast Calm Emotions as a 2nd level spell without consuming a spell slot once per day. Charisma is my spellcasting modifier for these.",
+			additional : ["as 2nd-level spell",],
+			tooltip : "(Celestial Blood)",
+			action : ["action", ""],
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Celestial Blood 3",
+				spells : ["calm emotions"],
+				selection : ["calm emotions"],
+				oncelr : true
+			}
+		},
+	"Dispel Evil and Good " : {
+			name : "Dispel Evil and Good ",
+			minlevel : 10,
+          description : "\n   " + "I can cast Dispel Evil and Good as a 5th level spell without consuming a spell slot once per day. Charisma is my spellcasting modifier for these.",
+			additional : ["as 5th-level spell",],
+			tooltip : "(Celestial Blood)",
+			action : ["action", ""],
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : {
+				name : "Celestial Blood 10",
+				spells : ["dispel evil and good"],
+				selection : ["dispel evil and good"],
+				oncelr : true
+			}
+		}
+	}
+};
+
+WeaponsList["unicorn horn"] = {
+	regExpSearch : /^(?=.*unicorn)(?=.*horn).*$/i,
+	name : "Unicorn Horn",
+	source : ["DnDB", 0],
+	ability : 1,
+	type : "Natural",
+	damage : [1, 10, "Piercing", "Magical"],
+	range : "Melee",
+	description : "Magical natural weapon. Can not be disarmed.",
+	abilitytodamage : true  };
