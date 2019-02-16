@@ -1,5 +1,5 @@
 /*	-WHAT IS THIS?-
-	The script featured here is an explanation of how to make your own custom addition to MPMB's D&D 5e Character Tools.
+	The script featuGrey here is an explanation of how to make your own custom addition to MPMB's D&D 5e Character Tools.
 	To add your own content to the Character Sheet, use the syntax below and save it in a file. You can then import this file directly to the sheet using the "Import" button and "Import/Export" bookmark.
 	There you can either import the file as a whole or just copy the text into a dialogue.
 
@@ -17,19 +17,14 @@
 var iFileName = "Grey Squirrelfolk.js"; 
 
 RaceList["Grey squirrelfolk"] = {
-	regExpSearch : /^(?=.*grey)(?=.*squirrelfolk).*$/i, 
-	name : "Grey Squirrelfolk", //required; the name to use for the race
+	regExpSearch : /^(?=.*Grey)(?=.*squirrelfolk).*$/i, 
+	name : "Grey Squirrelfolk", 
 	sortname : "Squirrelfolk, Grey", 
 	source : ["DnDw", 0], 
 	plural : "Grey Squirrelfolk", 
 	size : 5,
-	speed : { 
-		walk : { spd : 25, enc : 15 },
-    climb : { spd : 30, enc : 20 }, 
-  },
-};
-	
-	languageProfs : ["Common", "Sylvan"], 
+		speed : { 	walk : { spd : 25, enc : 15 }, climb : { spd : "fixed 30", enc : "fixed 20" },  },
+  languageProfs : ["Common", "Sylvan"], 
 	weapons : ["bite"],
 	vision : ["Darkvision", 60],
 	skills : ["Perception", "Survival"],
@@ -37,5 +32,5 @@ RaceList["Grey squirrelfolk"] = {
 	height : " range from just over or under 1 and a half feet tall", 
 	improvements : "Grey Squirrelfolk: +2 Dexterity, +1 Wisdom;", 
 	scores : [0, 2, 0, 0, 1, 0],
-	trait : "Grey Squirrelfolk (+2 Dexterity, +1 Charisma)\nRodent Bite: I can make an unarmed strike without the use of my hands.\n   Vigilant Vegetarian: Eating meat forces me to make a DC15 Con save or be poisoned until my next long rest.\n If both my hands are free, I can drop to all fours and run at a speed of 35 feet.", 
-};
+    trait : "Grey Squirrelfolk (+2 Dexterity, +1 Charisma)\nRodent Bite: I can make an unarmed strike without the use of my hands.\n   Vigilant Vegetarian: Eating meat forces me to make a DC15 Con save or be poisoned until my next long rest.\n If both my hands are free, I can drop to all fours and run at a speed of 35 feet."
+}; 
