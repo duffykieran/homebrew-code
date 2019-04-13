@@ -53,7 +53,7 @@ RaceList["raccoonfolk"] = {
 	weight : " are usually around 60lbs.",
 	improvements : "Raccoonfolk: +2 Dexterity, +1 Constitution;",
 	scores : [0, 2, 1, 0, 0, 0],
-  trait : "Raccoonfolk (+2 Dexterity, +1 Constitution)\nProcyon Guile: I know the Vicious Mockery cantrip.\nRaccoonfolk Cunning: Ihave advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
+  trait : "Raccoonfolk (+2 Dexterity, +1 Constitution)\nProcyon Guile: I know the Vicious Mockery cantrip.\nRaccoonfolk Cunning: I have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
 		name : "Procyon Guile",
