@@ -44,7 +44,7 @@ RaceList["raccoonfolk"] = {
 
 		immune : ["poison", "disease"], // Optional; this is an array of strings that the character is immune to. This is put in the field after the text "Immune to ", so in this example it would result in "Immune to poison and disease"
 
-		adv_vs : ["magic(int, wis, cha)", "charmed"] // Optional; this is an array of things that the character has advantage on saves against. This is put in the field after the text "Adv. on saves vs. ", so in this example it would result in "Adv. on saves vs. traps and charmed"
+		adv_vs : ["magic(int, wis, cha)", "charmed", "poisoned"] // Optional; this is an array of things that the character has advantage on saves against. This is put in the field after the text "Adv. on saves vs. ", so in this example it would result in "Adv. on saves vs. traps and charmed"
 	},
 	skills : ["Stealth"],
 	skillstxt : "Stealth and one other, chosen from: Athletics or Acrobatics", // Independent
