@@ -1,0 +1,64 @@
+/*	-WHAT IS THIS?-
+	This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+	Import this file using the "Add Extra Materials" bookmark.
+
+	-KEEP IN MIND-
+	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
+*/
+
+/*	-INFORMATION-
+	Subject:	Race
+	Effect:		This script adds a player race
+	Code by:	me lol
+	Date:		2018-01-03 (sheet v12.999)
+
+	Please support the creator of this content (Jeremy Forbing) and download his material from the DMs Guild website: https://www.dmsguild.com/browse.php?author=Jeremy%20Forbing
+
+*/
+
+var iFileName = "Raccoonfolk.js";
+RequiredSheetVersion(12.999);
+
+SourceList["FRA:SS"] = {
+	name : "dnd beyond",
+	abbreviation : "dndb",
+	group : "dndb",
+	url : "dndb",
+	date : "2019/04/13"
+};
+
+RaceList["raccoonfolk"] = {
+	regExpSearch : /^(?=.*raccoonfolk).*$/i,
+	name : "Raccoonfolk",
+	sortname : "Raccoonfolk",
+	source : ["dndb"],
+	plural : "Raccoonfolk",
+	size : 4,
+	speed : { walk : { spd : 35, enc : 25 } },
+	languageProfs : ["Common", "Sylvan"],
+	vision : [["Darkvision", 60]],
+	dmgres : ["Poison"],
+  savetxt : { // Optional; this attribute defines entries to add to the field for "Saving Throw Advantages / Disadvantages"
+
+		text : ["Magic can't put me to sleep"], // Optional; this is an array of strings, and each of those strings is added to the field exactly as presented here
+
+		immune : ["poison", "disease"], // Optional; this is an array of strings that the character is immune to. This is put in the field after the text "Immune to ", so in this example it would result in "Immune to poison and disease"
+
+		adv_vs : ["magic(int, wis, cha)", "charmed"] // Optional; this is an array of things that the character has advantage on saves against. This is put in the field after the text "Adv. on saves vs. ", so in this example it would result in "Adv. on saves vs. traps and charmed"
+	},
+	skills : ["Stealth"],
+	skillstxt : "Stealth and one other, chosen from: Athletics or Acrobatics", // Independent
+	age : " mature at 4 years and can grow past 250.",
+	height : " are aroubd 3ft tall.",
+	weight : " are usually around 60lbs.",
+	improvements : "Raccoonfolk: +2 Dexterity, +1 Constitution;",
+	scores : [0, 2, 1, 0, 0, 0],
+  trait : "Raccoonfolk (+2 Dexterity, +1 Constitution)\nProcyon Guile: I know the Vicious Mockery cantrip.\nRaccoonfolk Cunning: Ihave advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
+	spellcastingAbility : 6,
+	spellcastingBonus : {
+		name : "Procyon Guile",
+		spells : ["vicious mockery"],
+		selection : ["vicious mockery"],
+		atwill : true
+	},
+};
