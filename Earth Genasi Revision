@@ -1,0 +1,74 @@
+/*	-WHAT IS THIS?-
+	This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+	Import this file using the "Add Extra Materials" bookmark.
+
+	-KEEP IN MIND-
+	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
+*/
+
+/*	-INFORMATION-
+	Subject:	Race
+	Effect:		This script adds a racial change of Earth Genasi
+	Code by:	me ehe
+	Date:		2019-04-14 (sheet v12.999)
+*/
+
+var iFileName = "Variant - Earth Genasi.js";
+RequiredSheetVersion(12.999);
+
+RaceList["Genasi, Earth"] = {
+	regExpSearch : /^(?=.*earth)(?=.*genasi).*$/i,
+	name : "Earth Genasi",
+	source : ["HB", 0],
+	plural : "Earth Genasi",
+  size : 3,
+  speed : { walk: { spd : 30, enc : 20 } },
+  languageProfs : ["Common", "Primordial"],
+  vision : [["Darkvision", 60]],
+    savetxt : { // Optional; this attribute defines entries to add to the field for "Saving Throw Advantages / Disadvantages"
+
+		text : ["I have advantage against being Petrified", "Earth or stone terrain is never difficult for me"], // Optional; this is an array of strings, and each of those strings is added to the field exactly as presented here
+
+    adv_vs : ["petrified"] // Optional; this is an array of things that the character has advantage on saves against. This is put in the field after the text "Adv. on saves vs. ", so in this example it would result in "Adv. on saves vs. traps and charmed"
+	},
+  improvements : "Earth Genasi: +2 Constitution, +1 Strength;",
+	scores : [1, 0, 2, 0, 0, 0],
+	trait : "Earth Genasi (+2 Constitution and +1 Strength)\n\nMerge with Stone: I know the cantrip Mold Earth. At 3rd level I can cast Maximilian’s Earthen Grasp once per long rest, and at 5th level I can cast Meld into Stone once per long rest. Constitution is my spellcasting modifier for these.",
+		spellcastingAbility : 3,
+	spellcastingBonus : {
+		name : "Mold Eerth",
+		spells : ["mold earth"],
+		selection : ["mold earth"],
+		atwill : true
+	},
+  features : {
+		"merge with stone 3" : {
+			name : "Maximilian's Earthen Grasp",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			tooltip : " (Merge with Stone)",
+			action : ["action", ""],
+			spellcastingBonus : {
+				name : "Merge with Stone 3",
+				spells : ["Maximilian’s Earthen Grasp"],
+				selection : ["Maximilian’s Earthen Grasp"],
+				oncelr : true
+			}
+    }
+		},
+		"merge with stone 5" : {
+			name : "Meld into Stone",
+			minlevel : 5,
+			usages : 1,
+			recovery : "long rest",
+			tooltip : " (Merge with Stone)",
+			action : ["action", ""],
+			spellcastingBonus : {
+				name : "Merge with Stone 5",
+				spells : ["Meld into Stone"],
+				selection : ["Meld into Stone"],
+				oncelr : true
+	}
+    }
+};
