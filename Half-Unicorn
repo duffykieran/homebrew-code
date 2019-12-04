@@ -59,7 +59,7 @@ RaceList["half-unicorn"] = {
 			name : "Detect Evil and Good",
 			minlevel : 1,
       description : "\n   " + "I can cast Detect Evil and Good as a 1st level spell without consuming a spell slot once per day. Charisma is my spellcasting modifier for these.",
-			additional : ["as 1st-level spell",],
+			additional : ["1st level",],
 			tooltip : "(Celestial Blood)",
 			action : ["bonus action", ""],
 			usages : 1,
@@ -75,7 +75,7 @@ RaceList["half-unicorn"] = {
 			name : "Calm Emotions",
 			minlevel : 3,
           description : "\n   " + "I can cast Calm Emotions as a 2nd level spell without consuming a spell slot once per day. Charisma is my spellcasting modifier for these.",
-			additional : ["as 2nd-level spell",],
+			additional : ["2nd level",],
 			tooltip : "(Celestial Blood)",
 			action : ["action", ""],
 			usages : 1,
@@ -87,11 +87,11 @@ RaceList["half-unicorn"] = {
 				oncelr : true
 			}
 		},
-	"Dispel Evil and Good " : {
+	"dispel evil and good" : {
 			name : "Dispel Evil and Good ",
 			minlevel : 10,
           description : "\n   " + "I can cast Dispel Evil and Good as a 5th level spell without consuming a spell slot once per day. Charisma is my spellcasting modifier for these.",
-			additional : ["as 5th-level spell",],
+			additional : ["5th level",],
 			tooltip : "(Celestial Blood)",
 			action : ["action", ""],
 			usages : 1,
